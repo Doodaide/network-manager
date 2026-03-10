@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
+
+@layer base {
+  :root {
+    --background: 220 20% 10%;
+    --foreground: 210 20% 92%;
+
+    --card: 220 18% 13%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 220 18% 15%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 174 72% 50%;
+    --primary-foreground: 220 20% 8%;
+
+    --secondary: 220 16% 18%;
+    --secondary-foreground: 210 20% 85%;
+
+    --muted: 220 14% 16%;
+    --muted-foreground: 215 12% 55%;
+
+    --accent: 174 72% 50%;
+    --accent-foreground: 220 20% 8%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 14% 20%;
+    --input: 220 14% 20%;
+    --ring: 174 72% 50%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 220 18% 11%;
+    --sidebar-foreground: 210 20% 85%;
+    --sidebar-primary: 174 72% 50%;
+    --sidebar-primary-foreground: 220 20% 8%;
+    --sidebar-accent: 220 16% 16%;
+    --sidebar-accent-foreground: 210 20% 85%;
+    --sidebar-border: 220 14% 18%;
+    --sidebar-ring: 174 72% 50%;
+
+    --canvas: 220 22% 8%;
+    --node: 220 18% 18%;
+    --node-foreground: 210 20% 92%;
+    --node-border: 220 14% 28%;
+    --node-selected: 174 72% 50%;
+    --connector-friend: 174 72% 50%;
+    --connector-relationship: 340 72% 55%;
+    --connector-acquaintance: 45 80% 55%;
+    --group-stroke: 174 72% 50%;
+    --group-fill: 174 72% 50%;
+    --featured: 50 100% 60%;
+
+    --font-display: 'JetBrains Mono', monospace;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+  }
+  .dark {
+    --font-mono: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+/* Node animations */
+@keyframes featured-pulse {
+  0%, 100% { opacity: 0.6; r: calc(var(--base-r, 36)); }
+  50% { opacity: 1; r: calc(var(--base-r, 36) + 4); }
+}
+
+@keyframes focus-pulse {
+  0%, 100% { opacity: 0.5; stroke-width: 2; }
+  50% { opacity: 1; stroke-width: 3.5; }
+}
+
+.animate-featured-pulse {
+  animation: featured-pulse 2s ease-in-out infinite;
+}
+
+.animate-focus-pulse {
+  animation: focus-pulse 1.2s ease-in-out infinite;
+}
